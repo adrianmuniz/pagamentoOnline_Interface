@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import entities.Contract;
+import entities.Installment;
 
 public class ContractService {
 	
@@ -25,6 +26,12 @@ public class ContractService {
 			double updatedQuota = basicQuota + paymentService.interest(basicQuota, i);
 			//adicionando taxa
 			double fullQuota = updatedQuota + paymentService.paymentFee(updatedQuota);
+			
+			//pegamos a data do contrado e adicionamos i meses
+			Date dueDate = addMonths(contract.getDate(), i);
+			
+			//vamos instanciar esse contrato no installment
+			contract.getInstallments().add(new Installment(dueDate, fullQuota));
 		}
 	}
 	
