@@ -1,5 +1,8 @@
 package services;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import entities.Contract;
 
 public class ContractService {
@@ -23,6 +26,13 @@ public class ContractService {
 			//adicionando taxa
 			double fullQuota = updatedQuota + paymentService.paymentFee(updatedQuota);
 		}
+	}
+	
+	private Date addMonths(Date date, int N) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.add(Calendar.MONTH, N);
+		return calendar.getTime();
 	}
 	
 }
