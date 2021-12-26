@@ -2,6 +2,8 @@ package services;
 
 public class PayPalService implements OnlinePaymentService {
 
+	//objeto que utilizara a interface de pagamento
+	
 	public static final double PAYMENT_FEE = 0.02;
 	public static final double MONTHLY_INTEREST = 0.01;
 	
