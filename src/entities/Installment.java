@@ -33,6 +33,6 @@ public class Installment {
 		this.amount = amount;
 	}
 	
-	
+	 
 }
 
